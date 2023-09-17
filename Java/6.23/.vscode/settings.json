@@ -1,8 +1,0 @@
-{
-  "java.project.sourcePaths": ["src"],
-  //"java.project.outputPath": "bin",
-  "javascript.validate.enable": true,
-  "java.project.outputPath": "${workspaceFolder}/bin",
-
-  "java.project.referencedLibraries": ["lib/**/*.jar"]
-}

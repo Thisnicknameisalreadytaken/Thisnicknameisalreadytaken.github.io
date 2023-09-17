@@ -1,0 +1,49 @@
+{
+  "folders": [
+    {
+      "path": "../Cpp"
+    },
+    {
+      "path": "../Java"
+    },
+    {
+      "path": "../MarkDown"
+    },
+    {
+      "path": "../Python"
+    },
+    {
+      "path": "D:/Sun/Documents/Study"
+    },
+    {
+      "path": "../Temp"
+    },
+    {
+      "path": "../HTMLCSSJS"
+    },
+    {
+      "path": "../Http"
+    },
+    {
+      "path": "D:/Sun/Documents/Read"
+    },
+    {
+      "path": "../../../Project"
+    },
+    {
+      "path": "../C#"
+    },
+    {
+      "path": "../Mysql"
+    }
+  ],
+  "settings": {
+    "java.debug.settings.onBuildFailureProceed": true,
+    "liveServer.settings.multiRootWorkspaceName": "HTMLCSSJS",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "java.project.outputPath": "Class"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "GenericInterfaceExample",
+      "request": "launch",
+      "mainClass": "GenericInterfaceExample",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "GenericMethodExample",
+      "request": "launch",
+      "mainClass": "GenericMethodExample",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "TeacherCourseMapping",
+      "request": "launch",
+      "mainClass": "TeacherCourseMapping",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "Server",
+      "request": "launch",
+      "mainClass": "Server",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "Client",
+      "request": "launch",
+      "mainClass": "Client",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "Server",
+      "request": "launch",
+      "mainClass": "Project.Server",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "ATMApp",
+      "request": "launch",
+      "mainClass": "ATMApp",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "ShoppingCartApp",
+      "request": "launch",
+      "mainClass": "ShoppingCartApp",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "CsServer",
+      "request": "launch",
+      "mainClass": "CsServer",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "TicketSystem",
+      "request": "launch",
+      "mainClass": "TicketSystem",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "SerializationExample",
+      "request": "launch",
+      "mainClass": "SerializationExample",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "StudentManagement",
+      "request": "launch",
+      "mainClass": "StudentManagement",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "Station",
+      "request": "launch",
+      "mainClass": "Station",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "Data",
+      "request": "launch",
+      "mainClass": "Data",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "ReflectionExample",
+      "request": "launch",
+      "mainClass": "ReflectionExample",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "AtmDemo",
+      "request": "launch",
+      "mainClass": "AtmDemo",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "hi",
+      "request": "launch",
+      "mainClass": "hi",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "temp",
+      "request": "launch",
+      "mainClass": "temp",
+      "projectName": "Java_ee9c701f"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    }
+  ]
+}

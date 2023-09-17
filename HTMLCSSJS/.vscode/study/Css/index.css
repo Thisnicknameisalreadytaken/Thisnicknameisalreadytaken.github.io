@@ -1,0 +1,51 @@
+.banner {
+  width: 520px;
+  height: 400px;
+  border: 1px solid;
+  overflow: hidden;
+  position: relative;
+}
+.banner .image {
+  width: 1560px;
+  height: 400px;
+}
+
+.banner .image img {
+  width: 520px;
+  height: 400px;
+  float: left;
+}
+
+.banner .left,
+.banner .right {
+  position: absolute;
+  font-size: 3em;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.sign .left:hover {
+  background: #fff;
+  color: black;
+}
+
+.sign .right:hover {
+  background: #fff;
+  color: black;
+}
+
+.banner .left {
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.banner .right {
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

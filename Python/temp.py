@@ -1,21 +1,25 @@
 from ast import List
-
-from pyparsing import Optional
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+import math
 
 
 class Solution:
-    def rob(self, root: Optional[TreeNode]) -> int:
-        def dfs(root: Optional[TreeNode]) -> (int, int):
-            if root is None:
-                return 0, 0
-            ly, ln = dfs(root.left)
-            ry, rn = dfs(root.right)
-            return root.val+ln+rn, max(ly, ln)+max(ry, rn)
-        return max(dfs(root))
+    def minCapability(self, nums: List[int], k: int) -> int:
+        l, r, res = 0x3f3f3f3f, -0x3f3f3f3f, 0
+        for i in nums:
+            l = math.min(l, i)
+            r = math.max(r, i)
+        sum, judge = 0, 1
+        while l != r:
+            sum, judge = 0, 1
+            res = int((l+r)/2)
+            for i in nums:
+                if judge == 1 and i <= k:
+                    sum += 1
+                    judge = 0
+                else:
+                    judge = 1
+            if sum >= k:
+                r = res
+            else:
+                l = res+1
+        return l

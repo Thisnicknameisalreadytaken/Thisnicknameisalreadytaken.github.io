@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.TreeMap;
 
 class StockPrice {
 
@@ -6,34 +7,21 @@ class StockPrice {
 
     }
 
-    int max = -0x3f3f3f3f;
-    int min = 0x3f3f3f3f;
     int newtime = 0;
     HashMap<Integer, Integer> hash = new HashMap<>();
+    TreeMap<Integer, Integer> tree = new TreeMap<>();
 
     public void update(int timestamp, int price) {
         boolean judge = hash.containsKey(timestamp);
-        if (judge == false) {
-            hash.put(timestamp, price);
-            newtime = Math.max(timestamp, newtime);
-            max = Math.max(max, price);
-            min = Math.min(min, price);
-        } else {
-            if (hash.get(timestamp) == max || hash.get(timestamp) == min) {
-                max = -0x3f3f3f3f;
-                min = 0x3f3f3f3f;
-                hash.put(timestamp, price);
-                for (int i : hash.values()) {
-                    max = Math.max(max, i);
-                    min = Math.min(min, i);
-                }
-            } else {
-                hash.put(timestamp, price);
-                max = Math.max(max, price);
-                min = Math.min(min, price);
+        newtime = Math.max(newtime, timestamp);
+        if (judge == true) {
+            tree.put(hash.get(timestamp), tree.get(hash.get(timestamp)) - 1);
+            if (tree.get(hash.get(timestamp)) == 0) {
+                tree.remove(price);
             }
         }
-
+        hash.put(timestamp, price);
+        tree.put(price, tree.getOrDefault(price, 0) + 1);
     }
 
     public int current() {
@@ -41,10 +29,10 @@ class StockPrice {
     }
 
     public int maximum() {
-        return max;
+        return tree.lastKey();
     }
 
     public int minimum() {
-        return min;
+        return tree.firstKey();
     }
 }

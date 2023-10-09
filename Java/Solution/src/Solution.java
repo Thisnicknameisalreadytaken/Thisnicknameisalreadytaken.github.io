@@ -1,38 +1,30 @@
-import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.Arrays;
 
-class StockPrice {
-
-    public StockPrice() {
-
-    }
-
-    int newtime = 0;
-    HashMap<Integer, Integer> hash = new HashMap<>();
-    TreeMap<Integer, Integer> tree = new TreeMap<>();
-
-    public void update(int timestamp, int price) {
-        boolean judge = hash.containsKey(timestamp);
-        newtime = Math.max(newtime, timestamp);
-        if (judge == true) {
-            tree.put(hash.get(timestamp), tree.get(hash.get(timestamp)) - 1);
-            if (tree.get(hash.get(timestamp)) == 0) {
-                tree.remove(price);
-            }
+class Solution {
+    public int splitNum(int num) {
+        int res = 0;
+        int nums[] = new int[11];
+        int len = 0;
+        while (num != 0) {
+            nums[len++] = num % 10;
+            num /= 10;
         }
-        hash.put(timestamp, price);
-        tree.put(price, tree.getOrDefault(price, 0) + 1);
-    }
+        Arrays.sort(nums);
+        len = 11;
+        for (int i = 0; i < len; ++i) {
+            int temp = nums[i];
+            if (i % 2 == 0) {
+                for (int j = 1; j < len / 2 - i / 2 + 1; ++j) {
+                    temp *= 10;
+                }
+            } else {
+                for (int j = 1; j < len / 2 - i / 2; ++j) {
+                    temp *= 10;
+                }
+            }
+            res += temp;
+        }
 
-    public int current() {
-        return hash.get(newtime);
-    }
-
-    public int maximum() {
-        return tree.lastKey();
-    }
-
-    public int minimum() {
-        return tree.firstKey();
+        return res;
     }
 }

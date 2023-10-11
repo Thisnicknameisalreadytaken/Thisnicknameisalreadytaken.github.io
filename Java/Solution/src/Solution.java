@@ -1,30 +1,26 @@
 import java.util.Arrays;
 
 class Solution {
-    public int splitNum(int num) {
-        int res = 0;
-        int nums[] = new int[11];
-        int len = 0;
-        while (num != 0) {
-            nums[len++] = num % 10;
-            num /= 10;
-        }
-        Arrays.sort(nums);
-        len = 11;
+    public int sumDistance(int[] nums, String s, int d) {
+        long res = 0;
+        long num[] = new long[nums.length];
+        int mod = 10 ^ 9 + 7;
+        int len = nums.length;
+        for (int i = 0; i < len; ++i)
+            num[i] = nums[i];
+        len = s.length();
         for (int i = 0; i < len; ++i) {
-            int temp = nums[i];
-            if (i % 2 == 0) {
-                for (int j = 1; j < len / 2 - i / 2 + 1; ++j) {
-                    temp *= 10;
-                }
-            } else {
-                for (int j = 1; j < len / 2 - i / 2; ++j) {
-                    temp *= 10;
-                }
-            }
-            res += temp;
+            if (s.charAt(i) == 'L')
+                num[i] -= d;
+            else
+                num[i] += d;
         }
-
-        return res;
+        len = nums.length;
+        Arrays.sort(num);
+        for (int i = 1; i < len; ++i) {
+            res += 1L * ((num[i] - num[i - 1]) * i % mod * (len - i) % mod);
+            res %= mod;
+        }
+        return (int) res;
     }
 }

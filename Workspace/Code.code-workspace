@@ -35,6 +35,9 @@
     },
     {
       "path": "../Mysql"
+    },
+    {
+      "path": "../Android"
     }
   ],
   "settings": {

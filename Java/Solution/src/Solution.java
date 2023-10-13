@@ -1,26 +1,16 @@
 import java.util.Arrays;
 
 class Solution {
-    public int sumDistance(int[] nums, String s, int d) {
-        long res = 0;
-        long num[] = new long[nums.length];
-        int mod = 10 ^ 9 + 7;
-        int len = nums.length;
-        for (int i = 0; i < len; ++i)
-            num[i] = nums[i];
-        len = s.length();
-        for (int i = 0; i < len; ++i) {
-            if (s.charAt(i) == 'L')
-                num[i] -= d;
-            else
-                num[i] += d;
+    public int singleNumber(int[] nums) {
+        int[] num = new int[60005];
+        Arrays.fill(num, 0);
+        for (int i : nums) {
+            ++num[i - 30002];
         }
-        len = nums.length;
-        Arrays.sort(num);
-        for (int i = 1; i < len; ++i) {
-            res += 1L * ((num[i] - num[i - 1]) * i % mod * (len - i) % mod);
-            res %= mod;
+        for (int i = 0; i < 60005; ++i) {
+            if (num[i] == 1)
+                return i - 30002;
         }
-        return (int) res;
+        return 0;
     }
 }

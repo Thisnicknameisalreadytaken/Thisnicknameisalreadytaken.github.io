@@ -258,6 +258,22 @@ public:
 };
 ```
 
+### 8.求一组点之间的距离
+
+给点一组点的 x 轴坐标,求所有点之间的距离和
+
+```java
+public int sumDistance(int[] num) {
+    Arrays.sort(num);
+    int res = 0;
+    int len = num.length;
+    for (int i = 1; i < len; ++i) {
+        res += (num[i] - num[i - 1]) * i * (len - i);
+    }
+    return res;
+}
+```
+
 ## 三.极限边界
 
 ### 1.判断大小

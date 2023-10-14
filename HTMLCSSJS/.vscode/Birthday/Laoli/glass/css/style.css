@@ -88,3 +88,59 @@ body {
   color: transparent;
   animation: rotateLight 3s ease-in-out infinite alternate;
 }
+
+.text-shadow {
+  color: lightblue;
+  text-shadow: -1px -1px white, 1px 1px gray, 2px 2px #7a7a7a, 3px 3px #757575,
+    4px 4px #707070, 5px 5px #6b6b6b, 6px 6px #666666, 7px 7px #616161,
+    8px 8px #5c5c5c, 9px 9px #575757, 10px 10px #525252, 11px 11px #4d4d4d,
+    18px 18px 30px rgba(0, 0, 0, 0.4), 18px 18px 10px rgba(0, 0, 0, 0.4);
+}
+
+.flamboyant-text {
+  font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  background: linear-gradient(45deg, #8000ff, #00ff8f, #0026ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.8);
+  position: relative;
+  animation: glowing 2s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7),
+      0 0 30px rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7),
+      0 0 30px rgba(255, 0, 0, 0.8);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.beautiful-text {
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ff6b6b, #28a745, #007bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}

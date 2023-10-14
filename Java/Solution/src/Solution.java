@@ -1,16 +1,28 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution {
     public int singleNumber(int[] nums) {
-        int[] num = new int[60005];
-        Arrays.fill(num, 0);
+        int res = 0;
+        HashMap<Integer, Integer> num = new HashMap<>();
         for (int i : nums) {
-            ++num[i - 30002];
+            num.put(i, num.getOrDefault(i, 0) + 1);
         }
-        for (int i = 0; i < 60005; ++i) {
-            if (num[i] == 1)
-                return i - 30002;
+        for (Map.Entry<Integer, Integer> temp : num.entrySet()) {
+            if (temp.getValue() == 1)
+                return temp.getKey();
         }
-        return 0;
+        return res;
+    }
+
+    public int sumDistance(int[] num) {
+        Arrays.sort(num);
+        int res = 0;
+        int len = num.length;
+        for (int i = 1; i < len; ++i) {
+            res += (num[i] - num[i - 1]) * i * (len - i);
+        }
+        return res;
     }
 }

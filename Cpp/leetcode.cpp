@@ -1,29 +1,40 @@
-bool canPlaceFlowers(int *flowerbed, int flowerbedSize, int n)
+#include "./template/leetcode.h"
+struct node
 {
-    if (n == 0)
-        return true;
-    int res = 0;
-    if (flowerbedSize == 1)
-        return n == 1 && flowerbed[0] == 0;
-    else if (flowerbedSize == 2)
-        return n == 1 && flowerbed[0] + flowerbed[1] == 0;
-    if (flowerbed[0] + flowerbed[1] == 0)
+    int num;
+    struct node *next;
+};
+long long maxKelements(int *nums, int numsSize, int k)
+{
+    qsort(nums, numsSize, sizeof(int), inc);
+    long long res[k + 2];
+    int len = 0;
+    memset(res, 0, sizeof(long long) * (k + 2));
+    struct node *head[numsSize];
+    struct node *foot[numsSize];
+    for (int i = 0; i < numsSize; i++)
     {
-        ++res;
-        flowerbed[0] = 1;
+        head[i] = (struct node *)malloc(sizeof(struct node));
+        head[i]->num = nums[i];
+        head[i]->next = 0;
+        foot[i] = head[i];
     }
-    if (flowerbed[flowerbedSize - 1] + flowerbed[flowerbedSize - 2] == 0)
+    struct node *temp;
+    int num = 0;
+    for (int i = 0;; i++)
     {
-        ++res;
-        flowerbed[flowerbedSize - 1] = 1;
-    }
-    for (int i = 1; i < flowerbedSize - 1; ++i)
-    {
-        if (flowerbed[i - 1] + flowerbed[i] + flowerbed[i + 1] == 0)
+        num = foot[(i + 1) % numsSize]->num;
+        while (foot[i % numsSize]->num > num)
         {
-            flowerbed[i] = 1;
-            ++res;
+            res[++len] = res[len - 1] + foot[i % numsSize]->num;
+            if (len == k)
+                return res[k];
+            temp = (struct node *)malloc(sizeof(struct node));
+            temp->num = ceil(foot[i % numsSize]->num / 3);
+            temp->next = 0;
+            foot[i]->next = temp;
+            foot[i] = temp;
         }
     }
-    return res >= n;
+    return 0;
 }

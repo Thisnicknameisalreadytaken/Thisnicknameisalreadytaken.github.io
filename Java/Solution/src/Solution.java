@@ -1,16 +1,29 @@
-import java.util.PriorityQueue;
+import java.util.Arrays;
 
 class Solution {
-    public long maxKelements(int[] nums, int k) {
-        long res = 0;
-        PriorityQueue<Integer> q = new PriorityQueue<>();
-        for (int num : nums)
-            q.offer(num);
-        for (; k > 0; --k) {
-            int temp = q.poll();
-            res += temp;
-            q.offer((temp + 2) / 3);
+    public int maxSatisfaction(int[] satisfaction) {
+        int res = 0;
+        int t = 0;
+        int f = 0;
+        int max = 0;
+        Arrays.sort(satisfaction);
+        for (int i = 0; i < satisfaction.length; ++i) {
+            if (satisfaction[i] < 0) {
+                f += satisfaction[i];
+
+            } else {
+                t += satisfaction[i];
+            }
+            res += (i + 1) * satisfaction[i];
         }
-        return res;
+        max = 0 > res ? 0 : res;
+        for (int i = 0; i < satisfaction.length; ++i) {
+            if (satisfaction[i] >= 0)
+                break;
+            res = res - t - f;
+            f -= satisfaction[i];
+            max = res > max ? res : max;
+        }
+        return max;
     }
 }

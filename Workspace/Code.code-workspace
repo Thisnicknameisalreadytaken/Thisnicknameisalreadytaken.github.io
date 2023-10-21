@@ -47,6 +47,11 @@
     "editor.tabSize": 4,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "java.project.outputPath": "Class"
+    "java.project.outputPath": "Class",
+    "java.project.explorer.showNonJavaResources": false,
+    "java.project.referencedLibraries": [
+      "lib/**/*.jar",
+      "Vocabulary/src/com/lib/mysql-connector-java-5.1.39-bin.jar"
+    ]
   }
 }

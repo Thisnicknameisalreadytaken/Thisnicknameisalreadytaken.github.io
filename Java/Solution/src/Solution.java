@@ -1,29 +1,14 @@
-import java.util.Arrays;
-
 class Solution {
-    public int maxSatisfaction(int[] satisfaction) {
+    public int punishmentNumber(int n) {
         int res = 0;
-        int t = 0;
-        int f = 0;
-        int max = 0;
-        Arrays.sort(satisfaction);
-        for (int i = 0; i < satisfaction.length; ++i) {
-            if (satisfaction[i] < 0) {
-                f += satisfaction[i];
-
-            } else {
-                t += satisfaction[i];
-            }
-            res += (i + 1) * satisfaction[i];
+        int num[] = new int[] { 1, 9, 10, 36, 45, 55, 82, 91, 99, 100, 235, 297, 369, 370, 379, 414, 657, 675, 703, 756,
+                792, 909, 918, 945, 964, 990, 991, 999, 1000 };
+        int len = num.length;
+        for (int i = 0; i < len; ++i) {
+            if (num[i] > n)
+                return res;
+            res += (num[i] * num[i]);
         }
-        max = 0 > res ? 0 : res;
-        for (int i = 0; i < satisfaction.length; ++i) {
-            if (satisfaction[i] >= 0)
-                break;
-            res = res - t - f;
-            f -= satisfaction[i];
-            max = res > max ? res : max;
-        }
-        return max;
+        return res;
     }
 }

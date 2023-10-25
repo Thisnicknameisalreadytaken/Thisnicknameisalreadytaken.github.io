@@ -1,16 +1,20 @@
 from ast import List
 import math
 
-with open("E:\\Code\\VSCode\\Temp\\temp.txt", "r", encoding="utf-8") as file:
-    text = file.read()
 
-entries = text.split("-")
+def find(temp: str, num: int, need: int):
+    if temp == "":
+        return num == need
+    length = len(temp)
+    for i in range(1, length+1):
+        judge = find(temp[i:length+1], num+int(temp[0:i]), need)
+        if judge == True:
+            return True
+    return False
 
-with open("E:\\Code\\VSCode\\Temp\\output.txt", "w", encoding="utf-8") as output_file:
-    for entry in entries:
-        parts = entry.split("&")
-        print(parts)
-        if len(parts) == 2:
-            word, definition = map(str.strip, parts)
-            formatted_line = f'Insert into cet4 VALUES("{word}", "{definition}");\n'
-            output_file.write(formatted_line)
+
+for i in range(1, 10001):
+    temp = i*i
+    strt = str(temp)
+    if find(strt, 0, i):
+        print(i)

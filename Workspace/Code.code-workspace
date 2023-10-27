@@ -1,43 +1,60 @@
 {
   "folders": [
     {
+      "name": "Cpp",
       "path": "../Cpp"
     },
     {
+      "name": "Java",
       "path": "../Java"
     },
     {
+      "name": "MarkDown",
       "path": "../MarkDown"
     },
     {
+      "name": "Python",
       "path": "../Python"
     },
     {
+      "name": "Study",
       "path": "D:/Sun/Documents/Study"
     },
     {
+      "name": "Temp",
       "path": "../Temp"
     },
     {
+      "name": "HTMLCSSJS",
       "path": "../HTMLCSSJS"
     },
     {
+      "name": "Http",
       "path": "../Http"
     },
     {
+      "name": "Read",
       "path": "D:/Sun/Documents/Read"
     },
     {
+      "name": "Project",
       "path": "../../../Project"
     },
     {
+      "name": "C#",
       "path": "../C#"
     },
     {
+      "name": "Mysql",
       "path": "../Mysql"
     },
     {
+      "name": "Android",
       "path": "../Android"
+    },
+    {
+      "name": "Documents",
+      "path": "D:/Sun/Documents"
     }
   ],
   "settings": {

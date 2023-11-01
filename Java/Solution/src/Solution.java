@@ -1,20 +1,14 @@
-import java.util.PriorityQueue;
-
 class Solution {
-    public long pickGifts(int[] gifts, int k) {
-        long res = 0L;
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-        for (int i : gifts) {
-            pq.add(i);
+    public int hIndex(int[] citations) {
+        int res = citations.length;
+        for (int i = 0; i < res / 2; ++i) {
+            citations[i] ^= citations[res - i - 1];
+            citations[res - i - 1] ^= citations[i];
+            citations[i] ^= citations[res - i - 1];
         }
-        int temp = 0;
-        for (int i = 0; i < k; ++i) {
-            temp = pq.poll();
-            temp = (int) Math.sqrt(temp);
-            pq.add(temp);
-        }
-        for (int i : pq) {
-            res += i;
+        for (int i = 0; i < res; ++i) {
+            if (citations[i] <= i)
+                return i;
         }
         return res;
     }

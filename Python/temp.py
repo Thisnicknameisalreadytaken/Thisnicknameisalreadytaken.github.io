@@ -3,10 +3,17 @@ import math
 
 
 class Solution:
-    def countDigits(self, num: int) -> int:
-        strnum = str(num)
-        res = 0
-        for i in strnum:
-            if num % int(i) == 0:
-                res += 1
-        return res
+    def countPoints(self, rings: str) -> int:
+        color=['R','G','B']
+        ans = 0
+        for i in range(0,9):
+            judge=0
+            for j in color:
+                if (str(i)+j) in rings:
+                    judge=0
+                else:
+                    judge=1
+                    break
+            if judge==0:
+                ans+=1
+        return   ans

@@ -59,7 +59,7 @@
   ],
   "settings": {
     "java.debug.settings.onBuildFailureProceed": true,
-    "liveServer.settings.multiRootWorkspaceName": "HTMLCSSJS",
+    "liveServer.settings.multiRootWorkspaceName": "Temp",
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
     "editor.formatOnPaste": true,

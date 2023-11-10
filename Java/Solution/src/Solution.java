@@ -1,22 +1,25 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 class Solution {
-    public List<String> findRepeatedDnaSequences(String s) {
-        List<String> res = new ArrayList<>();
-        if (s.length() <= 10)
-            return res;
-        HashMap<String, Integer> hash = new HashMap<>();
-        int len = s.length();
-        String temp;
-        for (int i = 9; i < len; ++i) {
-            temp = s.substring(i - 9, i);
-            hash.put(temp, hash.getOrDefault(temp, 0) + 1);
-        }
-        for (String key : hash.keySet()) {
-            if (hash.get(key) > 1)
-                res.add(key);
+    public int[] successfulPairs(int[] spells, int[] potions, long success) {
+        int lens = spells.length;
+        int res[] = new int[lens];
+        Arrays.sort(potions);
+        int len = potions.length;
+        int left = 0, right = len - 1;
+        int mid = (left + right) >> 1;
+        for (int i = 0; i < lens; i++) {
+            left = 0;
+            right = len - 1;
+            while (left <= right) {
+                mid = (left + right) >> 1;
+                if (1L * spells[i] * potions[mid] >= success) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            res[i] = len - mid;
         }
         return res;
     }

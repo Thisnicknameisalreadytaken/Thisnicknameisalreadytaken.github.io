@@ -1,40 +1,51 @@
 #include "./template/leetcode.h"
-struct node
+#include <stdio.h>
+#include <stdbool.h>
+int nlevel[120][120];
+int ans[120][120];
+bool judge[120][120];
+int n, res = 1, sum;
+void dfs(int level)
 {
-    int num;
-    struct node *next;
-};
-long long maxKelements(int *nums, int numsSize, int k)
-{
-    qsort(nums, numsSize, sizeof(int), inc);
-    long long res[k + 2];
-    int len = 0;
-    memset(res, 0, sizeof(long long) * (k + 2));
-    struct node *head[numsSize];
-    struct node *foot[numsSize];
-    for (int i = 0; i < numsSize; i++)
+    if (level == n)
     {
-        head[i] = (struct node *)malloc(sizeof(struct node));
-        head[i]->num = nums[i];
-        head[i]->next = 0;
-        foot[i] = head[i];
+        if (res <= sum)
+            return;
+        sum = res;
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j <= nlevel[i][0]; j++)
+                ans[i][j] = nlevel[i][j];
+        return;
     }
-    struct node *temp;
-    int num = 0;
-    for (int i = 0;; i++)
+    else
     {
-        num = foot[(i + 1) % numsSize]->num;
-        while (foot[i % numsSize]->num > num)
+        bool flag = true;
+        for (int i = 1; i <= nlevel[level][0]; i++)
+            if (judge[level][res - nlevel[level][i]] && res - nlevel[level][i] != nlevel[level][i])
+                flag = false;
+        if (!flag)
+            dfs(level + 1);
+        else
         {
-            res[++len] = res[len - 1] + foot[i % numsSize]->num;
-            if (len == k)
-                return res[k];
-            temp = (struct node *)malloc(sizeof(struct node));
-            temp->num = ceil(foot[i % numsSize]->num / 3);
-            temp->next = 0;
-            foot[i]->next = temp;
-            foot[i] = temp;
+            nlevel[level][++nlevel[level][0]] = res;
+            judge[level][res++] = true;
+            dfs(0);
+            --nlevel[level][0];
+            judge[level][--res] = false;
+            dfs(level + 1);
         }
+    }
+}
+int main()
+{
+    scanf("%d", &n);
+    dfs(0);
+    printf("%d\n", --sum);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j <= ans[i][0]; j++)
+            printf("%d ", ans[i][j]);
+        printf("\n");
     }
     return 0;
 }

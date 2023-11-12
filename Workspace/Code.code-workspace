@@ -69,6 +69,10 @@
     "java.project.referencedLibraries": [
       "lib/**/*.jar",
       "Vocabulary/src/com/lib/mysql-connector-java-5.1.39-bin.jar"
-    ]
+    ],
+    "files.associations": {
+      "*.cs": "csharp",
+      "random": "cpp"
+    }
   }
 }

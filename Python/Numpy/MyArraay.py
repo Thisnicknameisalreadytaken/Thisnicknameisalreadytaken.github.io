@@ -20,3 +20,6 @@ import numpy
 # b = numpy.array([[1, 2], [3, 4]])
 # print(b)
 # print(b[0, 1])
+
+#随机初始化 2*3数组
+#print(numpy.empty([2,3]))

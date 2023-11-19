@@ -1,34 +1,39 @@
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int num[] = new int[11];
-        for (int i = 1; i < num.length; i++) {
-            num[i] = 1;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int nums[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
         }
-        int temp = 0;
-        for (int i = 1; i <= 4; ++i) {
-            for (int j = 1; j <= 9; ++j) {
-                for (int k = 1; k <= 9; ++k) {
-                    for (int l = 1; l < num.length; l++) {
-                        num[l] = 1;
-                    }
-                    temp = i * 100 + j * 10 + k;
-                    if (temp > 329)
-                        break;
-                    num[i] = 0;
-                    num[j] = 0;
-                    num[k] = 0;
-                    temp <<= 1;
-                    if (num[temp % 10]-- == 1 && num[temp / 100]-- == 1 && num[temp / 10 % 10]-- == 1) {
-                        temp >>= 1;
-                        temp *= 3;
-                        if (num[temp % 10]-- == 1 && num[temp / 100]-- == 1 && num[temp / 10 % 10]-- == 1) {
-                            System.out.println(temp / 3 + " " + (int) (temp / 1.5) + " " + temp);
-                        }
-                    }
+        String num[] = new String[n];
+        for (int i = 0; i < n; i++) {
+            num[i] = Integer.toString(nums[i]);
+        }
+        Arrays.sort(num, new Comparator<String>() {
+            @Override
+            public int compare(String a, String b) {
+                if (b.startsWith(a)) {
+                    return 1;
+                } else if (a.startsWith(b)) {
+                    return -1;
+                } else {
+                    return a.compareTo(b);
                 }
             }
+        });
+        for (int i = n - 1; i >= 1; --i) {
+            if (num[i - 1].startsWith(num[i]) && num[i - 1].charAt(num[i].length()) > num[i].charAt(0)) {
+                System.out.print(num[i - 1]);
+                num[i - 1] = num[i];
+            } else {
+                System.out.print(num[i]);
+            }
         }
+        System.out.print(num[0]);
     }
 }

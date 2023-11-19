@@ -1,23 +1,16 @@
-import java.util.*;
-
 class Solution {
-    public int longestAlternatingSubarray(int[] nums, int threshold) {
-        int res = 0;
-        int max = 0;
+    public int maxSubArray(int[] nums) {
+        int res = -0x3f3f3f3f;
+        int max = nums[0];
         int len = nums.length;
-        for (int i = 0; i < len; i++) {
-            if (max == 0 && nums[i] % 2 == 0 && nums[i] <= threshold) {
-                max = 1;
-            } else if (max != 0 && nums[i] % 2 != nums[i - 1] % 2 && nums[i] <= threshold) {
-                max++;
+        for (int i = 1; i < len; i++) {
+            if (max <= 0) {
+                max = nums[i];
             } else {
-                res = Math.max(res, max);
-                max = 0;
-                if (nums[i] % 2 == 0 && nums[i] <= threshold)
-                    max = 1;
+                max += nums[i];
             }
+            res = Math.max(res, max);
         }
-        res = Math.max(res, max);
         return res;
     }
 }

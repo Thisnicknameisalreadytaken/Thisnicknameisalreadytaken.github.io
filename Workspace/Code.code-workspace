@@ -73,6 +73,10 @@
     "files.associations": {
       "*.cs": "csharp",
       "random": "cpp"
+    },
+    "editor.defaultFormatter": "njpwerner.autodocstring",
+    "[python]": {
+      "editor.defaultFormatter": "njpwerner.autodocstring"
     }
   }
 }

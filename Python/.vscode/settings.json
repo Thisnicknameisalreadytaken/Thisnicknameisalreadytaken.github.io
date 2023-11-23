@@ -1,2 +1,7 @@
 {
+  "[python]": {
+    "editor.defaultFormatter": "njpwerner.autodocstring"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic"
 }

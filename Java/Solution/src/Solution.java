@@ -1,16 +1,12 @@
 class Solution {
-    public int maxSubArray(int[] nums) {
-        int res = -0x3f3f3f3f;
-        int max = nums[0];
-        int len = nums.length;
-        for (int i = 1; i < len; i++) {
-            if (max <= 0) {
-                max = nums[i];
-            } else {
-                max += nums[i];
-            }
-            res = Math.max(res, max);
-        }
-        return res;
+    public String entityParser(String text) {
+        text = text.replaceAll("&quot;", "\"");
+        text = text.replaceAll("&apos;", "\'");
+        text = text.replaceAll("&gt;", ">");
+        text = text.replaceAll("&lt;", "<");
+        text = text.replaceAll("&frasl;", "/");
+        text = text.replaceAll("&amp;", "&");
+        return text;
+
     }
 }

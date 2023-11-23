@@ -1,39 +1,31 @@
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int nums[] = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
-        }
-        String num[] = new String[n];
-        for (int i = 0; i < n; i++) {
-            num[i] = Integer.toString(nums[i]);
-        }
-        Arrays.sort(num, new Comparator<String>() {
-            @Override
-            public int compare(String a, String b) {
-                if (b.startsWith(a)) {
-                    return 1;
-                } else if (a.startsWith(b)) {
-                    return -1;
-                } else {
-                    return a.compareTo(b);
+        int num = sc.nextInt();
+        dif(num);
+    }
+
+    public static void dif(int num) {
+        for (int i = 14; i >= 0; --i) {
+            if (Math.pow(2, i) <= num) {
+                if (i == 0)
+                    System.out.print("2(0)");
+                else if (i == 1)
+                    System.out.print("2");
+                else if (i == 2)
+                    System.out.print("2(2)");
+                else {
+                    System.out.print("2(");
+                    dif(i);
+                    System.out.print(")");
                 }
-            }
-        });
-        for (int i = n - 1; i >= 1; --i) {
-            if (num[i - 1].startsWith(num[i]) && num[i - 1].charAt(num[i].length()) > num[i].charAt(0)) {
-                System.out.print(num[i - 1]);
-                num[i - 1] = num[i];
-            } else {
-                System.out.print(num[i]);
+                num -= Math.pow(2, i);
+                if (num != 0)
+                    System.out.print("+");
             }
         }
-        System.out.print(num[0]);
+        return;
     }
 }

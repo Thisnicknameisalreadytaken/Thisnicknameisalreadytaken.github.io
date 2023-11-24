@@ -8,7 +8,7 @@
   --transition: cubic-bezier(0.1, 0.7, 0, 1);
 }
 body {
-  background-color: #141414;
+  background-color: #222;
 }
 .wrapper {
   display: flex;
@@ -18,13 +18,13 @@ body {
 }
 .items {
   display: flex;
-  gap: 0.05rem;
+  gap: 2rem;
   perspective: calc(var(--index) * 35);
 }
 .item {
   background-color: #222;
-  width: calc(var(--index) * 3);
-  height: calc(var(--index) * 18);
+  width: calc(var(--index) * 4);
+  height: calc(var(--index) * 20);
   background-size: cover;
   background-position: center;
   cursor: pointer;

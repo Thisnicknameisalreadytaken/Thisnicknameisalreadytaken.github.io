@@ -3,29 +3,36 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        dif(num);
+        int n = sc.nextInt();
+        String temp = sc.nextLine();
+        temp = sc.nextLine();
+        int num = Integer.parseInt(temp, n);
+        int min = 0x3f3f3f3f;
+        int res = 0;
+        int now = num;
+        while (true) {
+
+        }
     }
 
-    public static void dif(int num) {
-        for (int i = 14; i >= 0; --i) {
-            if (Math.pow(2, i) <= num) {
-                if (i == 0)
-                    System.out.print("2(0)");
-                else if (i == 1)
-                    System.out.print("2");
-                else if (i == 2)
-                    System.out.print("2(2)");
-                else {
-                    System.out.print("2(");
-                    dif(i);
-                    System.out.print(")");
-                }
-                num -= Math.pow(2, i);
-                if (num != 0)
-                    System.out.print("+");
+    static String baseAny(int n, int base) {
+        if (n == 0 || n == 1)
+            return String.valueOf(n);
+        String ans = "";
+        while (n != 0) {
+            int r = n % base;
+            if (r < 0) {
+                r -= base;
+                n += base;
             }
+            if (r >= 10) {
+                ans += (char) ('A' + r - 10);
+            } else {
+                ans += (char) (r + '0');
+            }
+            n /= base;
         }
-        return;
+        String res = new StringBuilder(ans).reverse().toString();
+        return res;
     }
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="image-wrap">
+        <div class="content">
+            <img src="img.jpg" alt="">
+            <div class="infos">
+                <video id="myVideo" width="380" height="285">
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+                <button id="playButton" onclick="playVideo()">Play</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playVideo() {
+            var video = document.getElementById("myVideo");
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,62 +1,58 @@
 {
   "folders": [
     {
-      "name": "Cpp",
-      "path": "../Cpp"
+        "name": "Cpp",
+        "path": "../Cpp"
     },
     {
-      "name": "Java",
-      "path": "../Java"
+        "name": "Java",
+        "path": "../Java"
     },
     {
-      "name": "MarkDown",
-      "path": "../MarkDown"
+        "name": "MarkDown",
+        "path": "../MarkDown"
     },
     {
-      "name": "Python",
-      "path": "../Python"
+        "name": "Python",
+        "path": "../Python"
     },
     {
-      "name": "Study",
-      "path": "D:/Sun/Documents/Study"
+        "name": "Study",
+        "path": "D:/Sun/Documents/Study"
     },
     {
-      "name": "Temp",
-      "path": "../Temp"
+        "name": "Temp",
+        "path": "../Temp"
     },
     {
-      "name": "HTMLCSSJS",
-      "path": "../HTMLCSSJS"
+        "name": "HTMLCSSJS",
+        "path": "../HTMLCSSJS"
     },
     {
-      "name": "Http",
-      "path": "../Http"
+        "name": "Http",
+        "path": "../Http"
     },
     {
-      "name": "Read",
-      "path": "D:/Sun/Documents/Read"
+        "name": "Read",
+        "path": "D:/Sun/Documents/Read"
     },
     {
-      "name": "Project",
-      "path": "../../../Project"
+        "name": "Project",
+        "path": "../../../Project"
     },
     {
-      "name": "C#",
-      "path": "../C#"
+        "name": "C#",
+        "path": "../C#"
     },
     {
-      "name": "Mysql",
-      "path": "../Mysql"
+        "name": "Mysql",
+        "path": "../Mysql"
     },
     {
-      "name": "Android",
-      "path": "../Android"
-    },
-    {
-      "name": "Documents",
-      "path": "D:/Sun/Documents"
+        "name": "Documents",
+        "path": "D:/Sun/Documents"
     }
-  ],
+],
   "settings": {
     "java.debug.settings.onBuildFailureProceed": true,
     "liveServer.settings.multiRootWorkspaceName": "HTMLCSSJS",
@@ -77,6 +73,9 @@
     "editor.defaultFormatter": "njpwerner.autodocstring",
     "[python]": {
       "editor.defaultFormatter": "njpwerner.autodocstring"
+    },
+    "[cpp]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools"
     }
   }
 }

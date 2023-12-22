@@ -215,47 +215,26 @@ int* circularPermutation(int n, int start, int* returnSize){
 ### 7.进制转化
 
 ```java
-class Solution {
-public:
-    string baseNeg2(int n) {
-        return _baseAny(n, -2);
-    }
-    string _baseAny(int n, int base)
-    {
-        if (n == 0 || n == 1) return to_string(n);
-        string ans;
-        // 除基取余，余数是负需转成正
-        while (n)
-        {
-            int r = n % base;
-            /*
-                如果 r < 0， 商 + 1，余数 - 基数即可
-                余数（绝对值）一定小于基数，余数 - 基数可以将余数换为正数
-                a * base + r = n
-                (a + 1) * base + (r - base)
-                = a * base + base + r - base
-                = a * base + r = n
-            */
-            if (r < 0)
-            {
-                r -= base;
-                n += base;
-            }
-
-            if (r >= 10)
-            {
-                ans += 'A' + r - 10;
-            }
-            else
-            {
-                ans += r + '0';
-            }
-            n /= base;
+static String baseAny(int n, int base) {
+    if (n == 0 || n == 1)
+        return String.valueOf(n);
+    String ans = "";
+    while (n != 0) {
+        int r = n % base;
+        if (r < 0) {
+            r -= base;
+            n += base;
         }
-        reverse(ans.begin(), ans.end());
-        return ans;
+        if (r >= 10) {
+            ans += (char) ('A' + r - 10);
+        } else {
+            ans += (char) (r + '0');
+        }
+        n /= base;
     }
-};
+    String res = new StringBuilder(ans).reverse().toString();
+    return res;
+}
 ```
 
 ### 8.求一组点之间的距离

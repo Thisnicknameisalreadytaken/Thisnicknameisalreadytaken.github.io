@@ -1,27 +1,50 @@
-import java.util.Arrays;
-
 class Solution {
-    public boolean closeStrings(String word1, String word2) {
-        int num1[] = new int[26];
-        int num2[] = new int[26];
-        int len1 = word1.length();
-        int len2 = word2.length();
-        if (len1 != len2)
-            return false;
-        for (int i = 0; i < len1; i++) {
-            num1[word1.charAt(i) - 'a']++;
-            num2[word2.charAt(i) - 'a']++;
+    public int minOperationsMaxProfit(int[] customers, int boardingCost, int runningCost) {
+        int res = 0;
+        int max = -1;
+        int time = 0;
+        int ans = -1;
+        int len = customers.length;
+        int margin = 0;
+        for (int i = 0; i < len; ++i) {
+            ++time;
+            margin += customers[i];
+            if (margin >= 4) {
+                margin -= 4;
+                res += boardingCost * 4 - runningCost;
+                if (res > max) {
+                    max = res;
+                    ans = time;
+                }
+            } else {
+                res += boardingCost * margin - runningCost;
+                if (res > max) {
+                    max = res;
+                    ans = time;
+                }
+                margin = 0;
+            }
         }
-        for (int i = 0; i < 26; i++) {
-            if (num1[i] != 0 && num2[i] == 0 || num1[i] == 0 && num2[i] != 0)
-                return false;
+        while (margin > 0) {
+            ++time;
+            if (margin >= 4) {
+                margin -= 4;
+                res += boardingCost * 4 - runningCost;
+                if (res > max) {
+                    max = res;
+                    ans = time;
+                }
+            } else {
+                res += boardingCost * margin - runningCost;
+                if (res > max) {
+                    max = res;
+                    ans = time;
+                }
+                margin = 0;
+            }
         }
-        Arrays.sort(num1);
-        Arrays.sort(num2);
-        for (int i = 0; i < 26; i++) {
-            if (num1[i] != num2[i])
-                return false;
-        }
-        return true;
+        if (max <= 0)
+            return -1;
+        return ans;
     }
 }

@@ -1,16 +1,14 @@
-from ast import List
 import math
-from pyparsing import Optional
-from text import ListNode
- 
-             
+from ast import List
+from typing import Counter
+
+
 class Solution:
-    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        a=[0]*26
-        for i in magazine:
-            a[ord(i)-ord('a')]+=1
-        for i in ransomNote:
-            a[ord(i)-ord('a')]-=1
-            if a[ord(i)-ord('a')]<0:
-                return False
-        return True
+    def countWords(self, words1: List[str], words2: List[str]) -> int: # type: ignore
+        res=0
+        fre1=Counter(words1) # type: ignore
+        fre2=Counter(words2) # type: ignore
+        for word in fre1:
+            if fre1[word]*fre2[word]==1:
+                res+=1
+        return res 

@@ -2278,6 +2278,56 @@ The End
 - [x] 日常任务
   - [x] LeetCode
   - [x] 岛读
+- [x] 委派任务
+  - [x] 确定 Python 大作业题目
+  - [x] Android 大作业
+
+#### 8-14
+
+##### 8 周一
+
+- [x] 日常任务
+  - [x] LeetCode java
+  - [x] 岛读
+- [x] 委派任务
+  - [x] 准备 Android 答辩
+
+##### 9 周二
+
+- [x] 日常任务
+  - [x] LeetCode java
+  - [x] 岛读
+- [x] 委派任务
+  - [x] 修整 Python 实验报告
+  - [x] 软件测试作业提交
+
+##### 10 周三
+
+- [x] 日常任务
+  - [x] LeetCode java python
+  - [x] 岛读
+- [x] 委派任务
+  - [x] 准备数据库答辩
+  - [x] 数据库实验报告
+  - [x] 录制 Android 答辩视频
+  - [x] UML 状态机图报告
+
+服了 一个简单题 吭哧吭哧调试一个小时
+
+##### 11 周四
+
+- [x] 日常任务
+  - [x] LeetCode java
+  - [x] 岛读
 - [ ] 委派任务
-  - [ ] 确定 Python 大作业题目
-  - [ ] Android 大作业
+  - [ ] 整理计网提纲
+  - [x] UML 大作业实验报告
+
+##### 12 周五
+
+- [x] 日常任务
+  - [x] LeetCode java python
+  - [x] 岛读
+- [x] 委派任务
+  - [x] Android 实验报告
+  - [x] 兵役登记工作

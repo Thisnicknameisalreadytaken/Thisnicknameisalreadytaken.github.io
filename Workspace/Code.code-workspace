@@ -73,6 +73,7 @@
     "[cpp]": {
       "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "commentTranslate.hover.enabled": true
+    "commentTranslate.hover.enabled": true,
+    "commentTranslate.targetLanguage": "zh-CN"
   }
 }

@@ -1,22 +1,18 @@
-import java.util.HashMap;
-import java.util.Map;
+class NumArray {
 
-class Solution {
-    public int countWords(String[] words1, String[] words2) {
-        int res = 0;
-        Map<String, Integer> map1 = new HashMap<>();
-        Map<String, Integer> map2 = new HashMap<>();
-        for (String word : words1) {
-            map1.put(word, map1.getOrDefault(word, 0) + 1);
+    int[] num;
+    int[] my;
+
+    public NumArray(int[] nums) {
+        num = new int[nums.length + 1];
+        my = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            my[i] = nums[i];
+            num[i + 1] = num[i] + nums[i];
         }
-        for (String word : words2) {
-            map2.put(word, map2.getOrDefault(word, 0) + 1);
-        }
-        for (Map.Entry<String, Integer> entry : map1.entrySet()) {
-            if (map2.containsKey(entry.getKey()) && map2.get(entry.getKey()) * entry.getValue() == 1) {
-                ++res;
-            }
-        }
-        return res;
+    }
+
+    public int sumRange(int left, int right) {
+        return num[right + 1] - num[left + 1] + my[left];
     }
 }

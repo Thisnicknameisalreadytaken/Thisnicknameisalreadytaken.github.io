@@ -83,6 +83,8 @@ bool isGoodArray(int *nums, int numsSize)
 
 (a · b) mod m = ((a mod m) · (b mod m)) mod m
 
+**(a · 10 + b) mod m = (a mod m · 10 + b) mod m**
+
 ### 4.自增
 
 ```c

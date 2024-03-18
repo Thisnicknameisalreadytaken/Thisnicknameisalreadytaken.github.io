@@ -1,14 +1,15 @@
 import math
-from ast import List
-from typing import Counter
+import sys
+from typing import Counter, List, Optional
 
 
-class Solution:
-    def countWords(self, words1: List[str], words2: List[str]) -> int: # type: ignore
-        res=0
-        fre1=Counter(words1) # type: ignore
-        fre2=Counter(words2) # type: ignore
-        for word in fre1:
-            if fre1[word]*fre2[word]==1:
-                res+=1
-        return res 
+class NumArray:
+
+    num = [0]*200000
+
+    def __init__(self, nums: List[int]):
+        for i in range(len(nums)):
+            self.num[i+1] = self.num[i]+nums[i]
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.num[right+1]-self.num[left]
